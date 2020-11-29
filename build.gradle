@@ -5,7 +5,6 @@ sourceCompatibility = '1.8'
 defaultTasks 'clean', 'build'
 ext.libraryVersions = [
     jakartaee               : '8.0.0',
-    cacheapi                : '1.0.0',
     infinispan              : '10.1.8.Final'
 ]
 
@@ -15,13 +14,7 @@ repositories {
 
 dependencies {
     providedCompile "jakarta.platform:jakarta.jakartaee-api:${libraryVersions.jakartaee}"
-    compile "javax.cache:cache-api:${libraryVersions.cacheapi}" 
-    compile "org.infinispan:infinispan-jcache:${libraryVersions.infinispan}"
-    compile "org.infinispan:infinispan-cdi-embedded:${libraryVersions.infinispan}"
+    providedCompile "org.infinispan:infinispan-core:${libraryVersions.infinispan}"
+    providedCompile "org.infinispan:infinispan-client-hotrod:${libraryVersions.infinispan}"
 }
 
-configurations {
-  runtime.exclude group: "org.infinispan", module: "infinispan-core"
-  runtime.exclude group: "org.infinispan", module: "infinispan-commons"
-  runtime.exclude group: "org.infinispan.protostream", module: "protostream"
-}

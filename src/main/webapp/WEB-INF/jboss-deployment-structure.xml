@@ -3,8 +3,8 @@
     <deployment>
         <dependencies>
            <module name="org.infinispan" export="TRUE" />
-           <module name="org.infinispan.commons" export="TRUE" />
-           <module name="org.infinispan.protostream" export="TRUE" />
+            <module name="org.infinispan.commons" export="TRUE" />
+            <module name="org.infinispan.client.hotrod" export="TRUE" />
         </dependencies>
     </deployment>
 </jboss-deployment-structure>

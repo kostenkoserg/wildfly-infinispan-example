@@ -9,9 +9,13 @@
     <resource-env-ref>
         <resource-env-ref-name>mycache</resource-env-ref-name>
         <lookup-name>java:jboss/infinispan/cache/mycachecontainer/mycache</lookup-name>
-    </resource-env-ref>    
-    
-    
+    </resource-env-ref>
+
+    <resource-env-ref>
+        <resource-env-ref-name>myremotecontainer</resource-env-ref-name>
+        <lookup-name>java:jboss/infinispan/remote-container/myRemoteContainer</lookup-name>
+    </resource-env-ref>
+
 </web-app>
 
 

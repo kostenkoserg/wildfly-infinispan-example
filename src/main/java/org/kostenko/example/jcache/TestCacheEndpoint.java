@@ -10,7 +10,6 @@ import javax.ws.rs.core.Application;
 import javax.ws.rs.core.Response;
 
 /**
- *
  * @author kostenko
  */
 @Stateless
@@ -24,21 +23,33 @@ public class TestCacheEndpoint extends Application {
     @GET
     @Path("/ispn-put")
     public Response putIspn(@QueryParam("key") String key, @QueryParam("value") String value) {
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>> ispn-put <<<<<<<<<<<<<<<<<<<<<<<<");
         service.putIspnCache(key, value);
         return Response.ok("ok").build();
     }
-    
+
     @GET
     @Path("/ispn-get")
     public Response getIspn(@QueryParam("key") String key) {
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>> ispn-get <<<<<<<<<<<<<<<<<<<<<<<<");
         return Response.ok(service.getIspnCache(key)).build();
     }
-    
-    @Path("cache-result")
+
     @GET
-    public String cacheResult() {
-        return service.getJCacheResult();
+    @Path("/ispn-remote-put")
+    public Response putRemoteCache(@QueryParam("key") String key, @QueryParam("value") String value) {
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>> ispn-remote-put <<<<<<<<<<<<<<<<<<<<<<<<");
+        service.putRemoteCache(key, value);
+        return Response.ok("ok").build();
     }
+
+    @GET
+    @Path("/ispn-remote-get")
+    public Response getRemoteCache(@QueryParam("key") String key) {
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>> ispn-remote-get <<<<<<<<<<<<<<<<<<<<<<<<");
+        return Response.ok(service.getRemoteCache(key)).build();
+    }
+
 
 }
 
